@@ -22,7 +22,6 @@ References
 """
 
 #01背包问题。
-#画个图用于初始化
 def knapsack_01(values, weights, total):
     total_items = len(weights)
 
@@ -57,5 +56,4 @@ if __name__ == '__main__':
     values = [1, 2, 3]
     total_weight = 5
     expected = 5
-    print(knapsack_01(values, weights, total_weight))
     assert expected == knapsack_01(values, weights, total_weight)
