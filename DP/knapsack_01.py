@@ -5,6 +5,7 @@ Problem Statement
 0/1 Knapsack Problem - Given items of certain weights/values and maximum allowed weight how to pick items to pick items
 from this set to maximize sum of value of items such that sum of weights is less than or equal to maximum allowed
 weight.
+* http://www.geeksforgeeks.org/dynamic-programming-set-10-0-1-knapsack-problem/
 
 Runtime Analysis
 ----------------
@@ -17,7 +18,6 @@ Video
 
 References
 ----------
-* http://www.geeksforgeeks.org/dynamic-programming-set-10-0-1-knapsack-problem/
 * https://en.wikipedia.org/wiki/Knapsack_problem
 """
 

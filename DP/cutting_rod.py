@@ -22,17 +22,26 @@ Reference
 http://www.geeksforgeeks.org/dynamic-programming-set-13-cutting-a-rod/
 """
 
-
-
-
+def dp_min_space(price_list,n):
+    rod_length_values = [0 for _ in range(rod_length + 1)]
+    for i in range(1,n+1):
+        max_v=float('-inf')
+        for j in range(1,i+1):
+            max_v=max(max_v,price_list[j-1]+rod_length_values[i-j])
+        rod_length_values[i]=max_v
+    return rod_length_values[-1]
 
 #01背包模板
 def get_max_v(price_list,n):
     rows = n + 1
     cols = n + 1
     T = [[0 for _ in range(cols)] for _ in range(rows)]
-    for i in range(1,rows):
-        for j in range(1,cols):
+    for j in range(len(T[0])):
+        T[1][j]=j*price_list[0]
+    for i in range(2,len(T)):
+        T[i][1]=T[i-1][1]
+    for i in range(2,rows):
+        for j in range(2,cols):
             if j<i:
                 T[i][j]=T[i-1][j]
             else:
@@ -41,23 +50,10 @@ def get_max_v(price_list,n):
     return T[rows - 1][cols -1]
 
 
-#降低空间复杂度
-def max_profit_dp(prices, rod_length):
-    rod_length_values = [0 for _ in range(rod_length + 1)]
 
-    for length in range(1, rod_length + 1):
-
-        max_value = float("-inf")
-
-        for cut_length in range(1, length + 1):
-            max_value = max(max_value, prices[cut_length - 1] + rod_length_values[length - cut_length])
-
-        rod_length_values[length] = max_value
-
-    return rod_length_values[rod_length]
 if __name__ == '__main__':
     prices = [3,5,8,9,10,20,22,25]
     rod_length = 8
     expected_max_profit = 26
-    assert expected_max_profit == max_profit_dp(prices, rod_length)
+    assert expected_max_profit == dp_min_space(prices, rod_length)
     assert expected_max_profit == get_max_v(prices, rod_length)
