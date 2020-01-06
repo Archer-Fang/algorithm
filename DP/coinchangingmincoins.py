@@ -20,7 +20,7 @@ Analysis
 
 def min_coins(coins, total):
     cols = total + 1
-    rows = len(coins)
+    rows = len(coins)+1
     T = [[0 if col == 0 else float("inf") for col in range(cols)] for _ in range(rows)]
 
     for i in range(rows):
@@ -40,4 +40,4 @@ if __name__ == '__main__':
     total = 11
     expected = 2
     assert expected == min_coins(coins, total)
-   
+    
