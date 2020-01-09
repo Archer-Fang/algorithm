@@ -37,7 +37,7 @@ def matrix_chain_order(matrices):
     for gap in range(2, matrices_length):#先用两个矩阵相乘，保留相应的结果。
         for index_i in range(0, matrices_length - gap):
             index_j = index_i + gap
-            T[index_i][index_j] = 10000
+            T[index_i][index_j] = 100000000
             for index_k in range(index_i + 1, index_j):
                 temp = T[index_i][index_k] + T[index_k][index_j] + matrices[index_i] * matrices[index_k] * matrices[index_j]
                 if temp < T[index_i][index_j]:
@@ -47,6 +47,7 @@ def matrix_chain_order(matrices):
 
 
 if __name__ == '__main__':
-    matrices = [4, 2, 3, 5, 3]
+    matrices=[30,35,15,5,10,20,25]
+    print(matrix_chain_order(matrices))
     #4*2 2*3 3*5
     assert 84 == matrix_chain_order(matrices)
