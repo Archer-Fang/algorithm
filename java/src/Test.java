@@ -11,7 +11,8 @@ public class Test {
 }
 public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();     Integer[] array = new Integer[n];  for (int i = 0; i < array.length; i++) {
+        int n = scanner.nextInt();
+        Integer[] array = new Integer[n];  for (int i = 0; i < array.length; i++) {
             array[i] = scanner.nextInt();
         }
         TreeSet<Integer> res = new TreeSet<>((x,y)->(y-x));
