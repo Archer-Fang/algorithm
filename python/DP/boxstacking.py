@@ -16,7 +16,7 @@ Analysis
 --------
 If n number of dimensions are given total boxes after rotation will be 3n.
 * Space complexity is O(n)
-* Time complexity - O(nlogn) to sort boxes. O(n^2) to apply DP on it So really O(n^2)
+* Time complexity - O(nlogn) to sort boxes. O(n^2) to apply PartOne.DP on it So really O(n^2)
 
 Video
 -----

@@ -7,6 +7,11 @@ import java.util.List;
  * @author Created by Fangzj
  * @data 2021/3/23 20:20
  **/
+
+/*
+@param:二维数组
+return:二维list
+ */
 class Common{
     public List<List<Integer>> convert(int[][] tmp){
         List<List<Integer>> nums= new ArrayList<>();

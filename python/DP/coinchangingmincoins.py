@@ -8,7 +8,7 @@ Video
 -----
 
 
-* Bottom up DP - https://youtu.be/NJuKJ8sasGk (Same as Approach 1. Uses 1D array since 2D array is not required.)
+* Bottom up PartOne.DP - https://youtu.be/NJuKJ8sasGk (Same as Approach 1. Uses 1D array since 2D array is not required.)
 
 Analysis
 --------

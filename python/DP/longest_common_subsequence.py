@@ -26,8 +26,8 @@ Reference
 
 
 def longest_common_subsequence(sequence1, sequence2):
-    cols = len(sequence1) + 1   # Add 1 to represent 0 valued column for DP
-    rows = len(sequence2) + 1   # Add 1 to represent 0 valued row for DP
+    cols = len(sequence1) + 1   # Add 1 to represent 0 valued column for PartOne.DP
+    rows = len(sequence2) + 1   # Add 1 to represent 0 valued row for PartOne.DP
 
     T = [[0 for _ in range(cols)] for _ in range(rows)]
 

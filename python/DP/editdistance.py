@@ -11,7 +11,7 @@ Video
 
 Analysis
 --------
-* DP Runtime : O(len(str1) * len(str2))
+* PartOne.DP Runtime : O(len(str1) * len(str2))
 * Recursive Solution: Exponential (O(3^(m+n-1)))
 
 Reference

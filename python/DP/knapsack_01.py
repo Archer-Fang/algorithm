@@ -13,8 +13,8 @@ Time complexity - O(W*total items)
 
 Video
 -----
-* Topdown DP - https://youtu.be/149WSzQ4E1g
-* Bottomup DP - https://youtu.be/8LusJS5-AGo
+* Topdown PartOne.DP - https://youtu.be/149WSzQ4E1g
+* Bottomup PartOne.DP - https://youtu.be/8LusJS5-AGo
 
 References
 ----------

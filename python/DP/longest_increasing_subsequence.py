@@ -12,7 +12,7 @@ Video
 Solution
 --------
 
-Dynamic Programming is used to solve this question. DP equation is.::
+Dynamic Programming is used to solve this question. PartOne.DP equation is.::
 
         if(arr[i] > arr[j]) { T[i] = max(T[i], T[j] + 1) }
 

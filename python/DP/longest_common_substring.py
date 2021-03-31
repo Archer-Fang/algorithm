@@ -26,8 +26,8 @@ Reference
 
 
 def longest_common_substring(str1, str2):
-    cols = len(str1) + 1     # Add 1 to represent 0 valued col for DP
-    rows = len(str2) + 1     # Add 1 to represent 0 valued row for DP
+    cols = len(str1) + 1     # Add 1 to represent 0 valued col for PartOne.DP
+    rows = len(str2) + 1     # Add 1 to represent 0 valued row for PartOne.DP
 
     T = [[0 for _ in range(cols)] for _ in range(rows)]
 
