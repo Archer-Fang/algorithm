@@ -9,39 +9,34 @@ import java.io.FileOutputStream;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.Scanner;
-
+//https://www.jianshu.com/p/84608db757b4
 class Solution {
     public int needNum(int n, int[] nums) {
-        //hanuota
+        //如果没人
         if (n == 0) return 0;
+        //如果一个人
         if (n == 1) return nums[0];
+        //如果两个人
         if (n == 2) return Math.max(nums[0], nums[1]);
-        if (n == 3) {
-            int sum=0;
-            for (int i=0;i<n;i++){
-                sum+=nums[i];
-            }
-            return sum;
-        }
+        //如果三个人，则时间为a+b+c
+        if (n == 3) return Arrays.stream(nums).sum();
         Arrays.sort(nums);
-        int a = nums[0];
-        int b = nums[1];
-        int cnt = 0;
-        int i = n - 1;
-
-        while (i > 2) {
-            cnt += a + b + nums[i] + b;
-            i -= 2;
-
+        int i=n-1;
+        int a=nums[0];
+        int b=nums[1];
+        int sum=0;
+        for (;i>2;i-=2){
+            //一共两种方案:
+            // 1.最快的两个送最慢的两个。b+a+d+b=a+b+b+d
+            // 2.最快的一个送最慢的两个。d+a+c+a=a+a+c+d
+            int first=a+b+b+nums[i];
+            int second=a+a+nums[i-1]+nums[i];
+            if(first<second) sum+=first;
+            else sum+=second;
         }
-        if (i == 2) {
-            cnt += nums[0] + nums[1] + nums[2];
-        }
-        if (i == 1) {
-            cnt += b;
-        }
-
-        return cnt;
+        if(i==2) sum+=a+b+nums[2];
+        if (i == 1) sum+=b;
+        return sum;
     }
 
 }
@@ -54,19 +49,9 @@ public class Main {
         //         4
         //         10 1 5 2
         Solution solution = new Solution();
-        Scanner in = new Scanner(System.in);
-        int T = Integer.parseInt(in.nextLine());
-        while ((T--) > 0) {
-            int n = Integer.parseInt(in.nextLine());
-            int[] d1 = new int[n];
-            String[] ss1 = in.nextLine().split(" ");
-            for (int i = 0; i < ss1.length; i++) {
-                d1[i] = Integer.parseInt(ss1[i]);
-            }
-            System.out.println(solution.needNum(n, d1));
 
-        }
-//     System.out.println(solution.needNum(5,new int[]{1,2,3,4,5}));
+        System.out.println(solution.needNum(4,new int[]{1,2,5,8}));//15
+        System.out.println(solution.needNum(4,new int[]{1,8,9,10}));//29
 
 
     }
