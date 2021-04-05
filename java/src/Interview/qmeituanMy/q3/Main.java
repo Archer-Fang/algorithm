@@ -20,7 +20,7 @@ class Solution {
      public String getPart(int n){
          StringBuffer sb=new StringBuffer();
          LinkedList l=new LinkedList();
-         for (int i=1;i<=Math.sqrt(n)+1;i++){
+         for (int i=1;i<=Math.sqrt(n);i++){
              if(n%i==0){
                  sb.append(i);
                  l.addFirst(n/i);
