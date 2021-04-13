@@ -1,4 +1,4 @@
-package guild.Atomic;
+package guild.Thread.Atomic;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicMarkableReference;
