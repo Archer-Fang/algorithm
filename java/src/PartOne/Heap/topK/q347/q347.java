@@ -10,7 +10,8 @@ import java.util.PriorityQueue;
 class Solution {
     public int[] topKFrequent(int[] nums, int k) {
         if(k==0) return new int[]{};
-        PriorityQueue<Item> minHeap=new PriorityQueue<Item>((a,b)->a.freq-b.freq);
+//        PriorityQueue<Item> minHeap=new PriorityQueue<Item>((a,b)->a.val-b.val);
+        PriorityQueue<Item> minHeap=new PriorityQueue<Item>((a,b)->{ return a.val-b.val;});
         HashMap<Integer,Integer> map=new HashMap<>();
         for (Integer num:nums){
             map.put(num,map.getOrDefault(num,0)+1);
