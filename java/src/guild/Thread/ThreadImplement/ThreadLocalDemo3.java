@@ -8,7 +8,7 @@ import java.lang.reflect.Field;
  **/
 public class ThreadLocalDemo3 {
 
-    private static ThreadLocal<String> threadLocal1 = new ThreadLocal<>() {
+    private static ThreadLocal<String> threadLocal1 = new ThreadLocal<String>() {
         @Override
         protected String initialValue() {
             return "1";
@@ -20,7 +20,7 @@ public class ThreadLocalDemo3 {
             System.out.println("threadLocal1被回收");
         }
     };
-    private static ThreadLocal<String> threadLocal2 = new ThreadLocal<>() {
+    private static ThreadLocal<String> threadLocal2 = new ThreadLocal<String>() {
         @Override
         protected String initialValue() {
             return "2";
