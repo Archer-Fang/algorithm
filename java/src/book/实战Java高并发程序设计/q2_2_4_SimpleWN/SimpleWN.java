@@ -1,4 +1,4 @@
-package book.book.实战Java高并发程序设计.q2_2_4_SimpleWN;
+package book.实战Java高并发程序设计.q2_2_4_SimpleWN;
 
 /**
  * @author Created by Fangzj

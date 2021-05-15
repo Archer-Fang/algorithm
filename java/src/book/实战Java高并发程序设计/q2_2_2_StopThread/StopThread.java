@@ -1,4 +1,4 @@
-package book.book.实战Java高并发程序设计.q2_2_2_StopThread;
+package book.实战Java高并发程序设计.q2_2_2_StopThread;
 
 /**
  * @author Created by Fangzj

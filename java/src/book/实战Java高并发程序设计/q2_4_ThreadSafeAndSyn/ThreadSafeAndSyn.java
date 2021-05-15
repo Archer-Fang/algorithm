@@ -1,23 +1,20 @@
-package book.book.实战Java高并发程序设计.q2_8_2_UnSafeArrayList;
-
-import java.util.ArrayList;
+package book.实战Java高并发程序设计.q2_4_ThreadSafeAndSyn;
 
 /**
  * @author Created by Fangzj
- * @data 2021/5/13 15:47
+ * @data 2021/5/13 15:30
  **/
-public class q2_8_2_UnSafeArrayList {
-    static ArrayList<Integer> a1 = new ArrayList<Integer>(10);
+public class ThreadSafeAndSyn  {
+    static int i=0;
     public static class AddNum implements Runnable{
-        public synchronized void add(int i){
-            a1.add(i);
+        public synchronized void increse(){
+            i++;
         }
         @Override
         public void run() {
-            for (int i = 0; i < 1000000; i++) {
-                add(i);
+            for (int j = 0; j < 10000000; j++) {
+                increse();
             }
-
         }
     }
 
@@ -29,6 +26,7 @@ public class q2_8_2_UnSafeArrayList {
         t2.start();
         t1.join();
         t2.join();
-        System.out.println(a1.size());
+        System.out.println(i);
+
     }
 }

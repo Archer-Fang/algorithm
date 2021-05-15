@@ -1,4 +1,4 @@
-package book.book.实战Java高并发程序设计.q2_2_1_NewThread;
+package book.实战Java高并发程序设计.q2_2_1_NewThread;
 
 /**
  * @author Created by Fangzj
