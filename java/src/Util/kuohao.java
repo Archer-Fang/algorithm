@@ -9,7 +9,7 @@ import com.sun.deploy.util.StringUtils;
 public class kuohao {
     public static void main(String[] args) {
 
-        String s="[[1,3,1],[1,5,1],[4,2,1]]"
+        String s="[[7,0],[4,4],[7,1],[5,0],[6,1],[5,2]]"
                 .replace("[","{").replace("]","}");
         System.out.println(s);
     }
