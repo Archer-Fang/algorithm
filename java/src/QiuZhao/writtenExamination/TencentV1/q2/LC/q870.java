@@ -1,4 +1,4 @@
-package QiuZhao.writtenExamination.Tencent.q2.LC;
+package QiuZhao.writtenExamination.TencentV1.q2.LC;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;
