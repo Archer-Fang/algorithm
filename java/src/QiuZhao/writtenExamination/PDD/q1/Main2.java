@@ -12,9 +12,11 @@ import java.util.Scanner;
 //.*...*.
 //***.***
 //.*...*.
-//没想到ak了，大概说一下思路，第一题可以先预处理一下以每个点为中心向周围伸出的这四个分支的长度，统计出所有*的数量，然后遍历每个点，判断四个分支长度是不是相等以及四个分支加起来的长度是不是等于*的总量。第二题找到从左到右第一个'a'的位置，这个a之前的‘b’都是没法删掉的，同理从右到左找到‘b’的位置，后面那一串‘a’也是删不掉的，这两个位置中间若还有字符，最终都可以消为只剩一个‘b’。第三题主要就是判断一个数字时，填充问号使这个数字正好比前面大一点点。这种方式下能全部都处理，那就是可以的。第四题其实是个最长公共子序列的题，在这个环上切两刀，砍成两段，然后求两段的最长公共子序列长度。
-
-public class Main {
+//作者：The_ban
+//链接：https://www.nowcoder.com/discuss/770247?type=all&order=time&pos=&page=1&ncTraceId=&channel=-1&source_id=search_all_nctrack
+//来源：牛客网
+//
+public class Main2 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int T=Integer.parseInt(in.nextLine());
@@ -40,34 +42,34 @@ public class Main {
                             chars[i][j]='.';
                             //上
                             for (int k = i-1; k >= 0; k--) {
-                                if(chars[k][j]!='*'){
+                                if((j-1>=0&&chars[k][j-1]=='*')||(j+1<w&&chars[k][j+1]=='*')||chars[k][j]!='*'){
                                     break;
                                 }else {
-                                    chars[k][j]='.';
+                                    chars[i][j]='.';
                                 }
                             }
                             //下
                             for (int k = i+1; k <h; k++) {
-                                if(chars[k][j]!='*'){
+                                if((j-1>=0&&chars[k][j-1]=='*')||(j+1<w&&chars[k][j+1]=='*')||chars[k][j]!='*'){
                                     break;
                                 }else {
-                                    chars[k][j]='.';
+                                    chars[i][j]='.';
                                 }
                             }
                             //左
                             for (int k = j-1; k >= 0; k--) {
-                                if(chars[i][k]!='*'){
+                                if((i-1>=0&&chars[i-1][k]=='*')||(i+1<h&&chars[i+1][k]=='*')||chars[i][k]!='*'){
                                     break;
                                 }else {
-                                    chars[i][k]='.';
+                                    chars[i][j]='.';
                                 }
                             }
                             //右
                             for (int k = j+1; k <w; k++) {
-                                if(chars[i][k]!='*'){
+                                if((i-1>=0&&chars[i-1][k]=='*')||(i+1<h&&chars[i+1][k]=='*')||chars[i][k]!='*'){
                                     break;
                                 }else {
-                                    chars[i][k]='.';
+                                    chars[i][j]='.';
                                 }
                             }
                             c++;
@@ -84,7 +86,7 @@ public class Main {
                 for (int i = 0; i < h; i++) {
                     for (int j = 0; j < w; j++) {
                         if(chars[i][j]=='*'&&!eg){
-                            ans.append("NO ");
+                            ans.append("YES ");
                             eg=true;
                         }
                     }
@@ -115,7 +117,7 @@ public class Main {
         int[] ds = new int[4];
         //上
         for (int k = i-1; k >= 0; k--) {
-            if(chars[k][j]!='*'){
+            if((j-1>=0&&chars[k][j-1]=='*')||(j+1<w&&chars[k][j+1]=='*')||chars[k][j]!='*'){
                 break;
             }else {
                 ds[0]++;
@@ -123,7 +125,7 @@ public class Main {
         }
         //下
         for (int k = i+1; k <h; k++) {
-            if(chars[k][j]!='*'){
+            if((j-1>=0&&chars[k][j-1]=='*')||(j+1<w&&chars[k][j+1]=='*')||chars[k][j]!='*'){
                 break;
             }else {
                 ds[1]++;
@@ -131,7 +133,7 @@ public class Main {
         }
         //左
         for (int k = j-1; k >= 0; k--) {
-            if(chars[i][k]!='*'){
+            if((i-1>=0&&chars[i-1][k]=='*')||(i+1<h&&chars[i+1][k]=='*')||chars[i][k]!='*'){
                 break;
             }else {
                 ds[2]++;
@@ -139,7 +141,7 @@ public class Main {
         }
         //右
         for (int k = j+1; k <w; k++) {
-            if(chars[i][k]!='*'){
+            if((i-1>=0&&chars[i-1][k]=='*')||(i+1<h&&chars[i+1][k]=='*')||chars[i][k]!='*'){
                 break;
             }else {
                 ds[3]++;
