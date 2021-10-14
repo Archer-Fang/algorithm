@@ -1,4 +1,5 @@
 package DMSXL.DP.q530MinimumAbsoluteDifferenceInBst;
+
 //Java：二叉搜索树的最小绝对差
 public class q530MinimumAbsoluteDifferenceInBst{
     public static void main(String[] args) {
