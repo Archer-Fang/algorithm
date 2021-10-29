@@ -1,11 +1,11 @@
-package QiuZhao.interview.pdd.q1;
+package QiuZhao.writtenExamination.DB.q3;
 
 /**
  * @author Created by Fangzj
- * @data 2021/10/19 13:32
+ * @data 2021/10/24 12:50
  **/
-public class q1 {
+public class Main {
     public static void main(String[] args) {
-        
+
     }
 }

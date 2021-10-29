@@ -5,8 +5,9 @@ import java.util.Stack;
 //Java：逆波兰表达式求值
 public class q150EvaluateReversePolishNotation{
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        DMSXL.DP.q150EvaluateReversePolishNotation.Solution solution = new DMSXL.DP.q150EvaluateReversePolishNotation.Solution();
         // TO TEST
+        System.out.println(solution.evalRPN(new String[]{"2","1","+","3","*"}));;
     }
 }
 //leetcode submit region begin(Prohibit modification and deletion)

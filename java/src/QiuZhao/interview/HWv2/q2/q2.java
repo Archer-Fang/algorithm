@@ -1,4 +1,4 @@
-package QiuZhao.interview.pdd.q2;
+package QiuZhao.interview.HWv2.q2;
 
 /**
  * @author Created by Fangzj
