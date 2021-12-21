@@ -1,0 +1,90 @@
+class ListNode(object):
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+
+class MyLinkedList(object):
+
+    def __init__(self):
+        self.head = ListNode(0, None)
+
+    def get(self, index):
+        """
+        :type index: int
+        :rtype: int
+        """
+        cur = self.head.next
+        while index > 0:
+            index -= 1
+            cur = cur.next
+        return cur.val
+
+    def addAtHead(self, val):
+        """
+        :type val: int
+        :rtype: None
+        """
+        add = ListNode(val, None)
+        add.next = self.head.next
+        self.head.next = add
+        return self.head.next
+
+    def addAtTail(self, val):
+        """
+        :type val: int
+        :rtype: None
+        """
+        cur = self.head
+        while cur.next != None:
+            cur = cur.next
+        cur.next = ListNode(val, None)
+        return self.head.next
+
+    def addAtIndex(self, index, val):
+        """
+        :type index: int
+        :type val: int
+        :rtype: None
+        """
+        pre, cur = self.head, self.head.next
+        while index > 0:
+            index -= 1
+            pre = pre.next
+            cur = cur.next
+        tmp = ListNode(val, cur)
+        pre.next = tmp
+        return self.head.next
+
+    def deleteAtIndex(self, index):
+        """
+        :type index: int
+        :rtype: None
+        """
+        pre, cur = self.head, self.head.next
+        while index > 0:
+            index -= 1
+            pre = pre.next
+            cur = cur.next
+        pre.next = cur.next
+        return self.head.next
+
+
+# Your MyLinkedList object will be instantiated and called as such:
+# obj = MyLinkedList()
+# param_1 = obj.get(index)
+# obj.addAtHead(val)
+# obj.addAtTail(val)
+# obj.addAtIndex(index,val)
+# obj.deleteAtIndex(index)
+
+# runtime_error:AttributeError: 'NoneType' object has no attribute 'next'
+    pre.next = cur.next
+Line 69 in deleteAtIndex (Solution.py)
+    __Deserializer__()._deserialize(json.dumps(p[0], separators=(",", ":")), "integer"))
+Line 120 in __helper_select_method__ (Solution.py)
+    ret.append(__DriverSolution__().__helper_select_method__(method, params[index], obj))
+Line 157 in _driver (Solution.py)
+    _driver()
+Line 165 in <module> (Solution.py)
+# last_testcase:["MyLinkedList","addAtHead","deleteAtIndex","addAtHead","addAtHead","addAtHead","addAtHead","addAtHead","addAtTail","get","deleteAtIndex","deleteAtIndex"] [[],[2],[1],[2],[7],[3],[2],[5],[5],[5],[6],[4]]
