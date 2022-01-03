@@ -54,4 +54,22 @@ class Solution(object):
         :type nums2: List[int]
         :rtype: List[int]
         """
+        map = {}
+        stack = []
+        ans = [-1] * len(nums2)
+        ans2 = [-1] * len(nums1)
+        for i in range(len(nums2)):
+            map[nums2[i]] = i
+            while len(stack) > 0 and nums2[i] > nums2[stack[-1]]:
+                ans[stack.pop()] = i
+            stack.append(i)
+        for i, num in enumerate(nums1):
+            if ans[map[num]] != -1:
+                ans2[i] = nums2[ans[map[num]]]
+        return ans2
+
+
 # leetcode submit region end(Prohibit modification and deletion)
+if __name__ == '__main__':
+    s = Solution()
+    print(s.nextGreaterElement([4, 1, 2], [1, 3, 4, 2]))
