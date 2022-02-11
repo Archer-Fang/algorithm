@@ -2,3 +2,4 @@
 Algorithm.iml
 out/
 python/Temp/leetcode/editor/cn/doc
+*.json
