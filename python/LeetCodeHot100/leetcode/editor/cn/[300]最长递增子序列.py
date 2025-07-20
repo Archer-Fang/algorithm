@@ -52,10 +52,15 @@ from typing import List
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
-        
+        dp=[1 for i in range(len(nums))]
+        for i in range(1,len(nums)):
+            for j in range(0,i):
+                if nums[i]>nums[j]:
+                    dp[i]=max(dp[i],dp[j]+1)
+        return max(dp)
 # leetcode submit region end(Prohibit modification and deletion)
 
 
 if __name__ == '__main__':
     s=Solution()
-    print(s)
+    print(s.lengthOfLIS([10,9,2,5,3,7,101,18]))
