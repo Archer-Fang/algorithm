@@ -1,0 +1,15 @@
+class Solution:
+    def countSubstrings(self, s: str) -> int:
+        n=len(s)
+        dp=[[0]*(n+1) for i in range(n+1)]
+        ans=0
+        for i in range(n,0,-1):
+            for j in range(i,1+n):
+                if s[i-1]==s[j-1]:
+                    if abs(i-j)<=1 or abs(i-j)>1 and dp[i+1][j-1]==1:
+                        ans+=1
+                        dp[i][j]=1
+        return ans
+
+# runtime:312 ms
+# memory:23 MB
