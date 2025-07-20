@@ -57,13 +57,12 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        ans=[]
         dic={}
-        for i,item in enumerate(nums):
-            if target-item in dic.keys():
-                return [dic.get(target-item),i]
-            dic[item]=i
-        return []
+        for i in range(len(nums)):
+            if nums[i] in dic:
+                return [dic[nums[i]],i]
+            dic[target - nums[i]] = i
+        return [-1,-1]
 
 # leetcode submit region end(Prohibit modification and deletion)
 if __name__ == '__main__':
