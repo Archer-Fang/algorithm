@@ -49,18 +49,19 @@ class Solution:
         if not root:
             return 0
         q=collections.deque([root])
-        depth=0
+        d=0
         while q:
-            depth+=1
-            for _ in range(len(q)):
+            d=d+1
+            for i in range(len(q)):
                 cur=q.popleft()
+                if not cur.left and not cur.right:
+                    return d
                 if cur.left:
                     q.append(cur.left)
                 if cur.right:
                     q.append(cur.right)
-                if cur.right is None and cur.left is None:
-                   return depth
-        return depth
+        return d
+
 
 # leetcode submit region end(Prohibit modification and deletion)
 

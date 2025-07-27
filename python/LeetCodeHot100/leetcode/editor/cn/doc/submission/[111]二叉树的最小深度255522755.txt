@@ -1,0 +1,40 @@
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+import collections
+
+
+class Solution(object):
+    def minDepth(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        queue = collections.deque()
+        if not root:
+            return 0
+        queue.append(root)
+        ans=0
+        while queue:
+            ans+=1
+            size=len(queue)
+            flag=True
+            for i in range(size):
+                cur=queue.popleft()
+                if not cur.left and not cur.right:
+                    flag=False
+                    break
+                if cur.left:
+                    queue.append(cur.left)
+                if cur.right:
+                    queue.append(cur.right)
+            if not flag:
+                break
+        return ans
+
+
+# runtime:544 ms
+# memory:90.2 MB
