@@ -48,19 +48,30 @@ class Solution:
     def minDepth(self, root: Optional[TreeNode]) -> int:
         if not root:
             return 0
-        q=collections.deque([root])
-        d=0
-        while q:
-            d=d+1
-            for i in range(len(q)):
-                cur=q.popleft()
-                if not cur.left and not cur.right:
-                    return d
-                if cur.left:
-                    q.append(cur.left)
-                if cur.right:
-                    q.append(cur.right)
-        return d
+        if root.left and root.right:
+            return 1+min(self.minDepth(root.left),self.minDepth(root.right))
+        if root.left and root.right is None:
+            return 1+self.minDepth(root.left)
+        if root.right and root.left is None:
+            return 1+self.minDepth(root.right)
+        return 1
+    # 层序遍历
+    # def minDepth(self, root: Optional[TreeNode]) -> int:
+    #     if not root:
+    #         return 0
+    #     q=collections.deque([root])
+    #     depth=0
+    #     while q:
+    #         depth=depth+1
+    #         for i in range(len(q)):
+    #             cur=q.popleft()
+    #             if not cur.left and not cur.right:
+    #                 return depth
+    #             if cur.left:
+    #                 q.append(cur.left)
+    #             if cur.right:
+    #                 q.append(cur.right)
+    #     return depth
 
 
 # leetcode submit region end(Prohibit modification and deletion)
