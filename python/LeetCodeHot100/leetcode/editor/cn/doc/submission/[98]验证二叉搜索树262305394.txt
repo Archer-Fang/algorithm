@@ -1,0 +1,29 @@
+# Definition for a binary tree node.
+
+class Solution(object):
+    def isValidBST(self, root):
+        """
+        :type root: TreeNode
+        :rtype: bool
+        """
+        pre = -float("INF")
+
+        # 左中右递增
+        def dfs(root: TreeNode):
+            nonlocal pre
+            if not root:
+                return True
+            l = dfs(root.left)
+            if root.val > pre:
+                pre = root.val
+            else:
+                return False
+            r = dfs(root.right)
+            return l and r
+
+        return dfs(root)
+
+
+
+# runtime:48 ms
+# memory:18 MB
