@@ -1,0 +1,20 @@
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        visit=[0]*len(nums)
+        ans=[]
+        def dfs(nums,visit,path):
+            if len(path)==len(nums):
+                ans.append(path[:])
+                return
+            for i in range(len(nums)):
+                if visit[i]!=1:
+                    visit[i]=1
+                    path.append(nums[i])
+                    dfs(nums,visit,path)
+                    path.pop()
+                    visit[i]=0
+        dfs(nums,visit,path=[])
+        return ans
+
+# runtime:40 ms
+# memory:15.1 MB
