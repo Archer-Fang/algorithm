@@ -35,10 +35,35 @@ from typing import List
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution:
     def partition(self, s: str) -> List[List[str]]:
+        result=[]
+        self.backtracking(s, result,[],0)
+        return result
+    def backtracking(self, s, result,path,index):
+        if index==len(s):
+            result.append(path[:])
+            return
+        for i in range(index,len(s)):
+            if not self.isValid(s,index,i):
+                continue
+            path.append(s[index:i+1])
+            self.backtracking(s, result,path,i+1)
+            path.pop()
+
+
+    def isValid(self, s,i,j):
+        while i<j:
+            if s[i]==s[j]:
+                i=i+1
+                j=j-1
+            else:
+                return False
+        return True
+
+
         
 # leetcode submit region end(Prohibit modification and deletion)
 
 
 if __name__ == '__main__':
     s=Solution()
-    print(s)
+    print(s.partition("aab"))
