@@ -1,0 +1,24 @@
+from typing import List
+
+
+class Solution:
+    def combine(self, n: int, k: int) -> List[List[int]]:
+        anses = []
+
+        def dfs(n, k, index, ans):
+            nonlocal anses
+            if len(ans) == k:
+                anses.append(ans[:])
+                return
+            for i in range(index, n + 1):
+                ans.append(i)
+                dfs(n, k, i + 1, ans)
+                ans.pop()
+
+        dfs(n, k, 1, [])
+        return anses
+
+
+
+# runtime:304 ms
+# memory:16.4 MB

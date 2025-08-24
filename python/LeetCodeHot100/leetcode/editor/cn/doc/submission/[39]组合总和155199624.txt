@@ -1,0 +1,24 @@
+class Solution {
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        List<List<Integer>> ans=new LinkedList<>();
+        LinkedList<Integer> oneAns = new LinkedList<>();
+        Arrays.sort(candidates);
+        dfs(candidates,target,ans,0,oneAns);
+        return ans;
+    }
+
+    public void dfs(int[] candidates, int target,List<List<Integer>> ans,int index,LinkedList<Integer> oneAns){
+        if(target==0) {ans.add(new ArrayList<>(oneAns));return;}
+        if(target<0) return;
+        for(int i=index;i<candidates.length;i++){
+            if(candidates[i]>target) return;
+            oneAns.add(candidates[i]);
+            dfs(candidates,target-candidates[i],ans,i,oneAns);
+            oneAns.removeLast();
+        }
+        return;
+    }
+}
+
+//runtime:3 ms
+//memory:38.3 MB

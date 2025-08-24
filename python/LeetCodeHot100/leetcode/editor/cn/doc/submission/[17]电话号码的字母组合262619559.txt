@@ -1,0 +1,21 @@
+class Solution:
+    def letterCombinations(self, digits: str) -> List[str]:
+        map = {"2": "abc", "3": "def", "4": "ghi", "5": "jkl", "6": "mno", "7": "pqrs", "8": "tuv", "9": "wxyz"}
+        ans = []
+
+        def dfs(dights, index, path):
+            nonlocal map
+            if index == len(dights):
+                if path!="":
+                    ans.append(path[:])
+                return
+            for alph in map[dights[index]]:
+                path += alph
+                dfs(dights, index+1,path)
+                path=path[:-1]
+        dfs(digits,index=0,path="")
+        return ans
+
+
+# runtime:32 ms
+# memory:15.1 MB

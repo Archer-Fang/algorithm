@@ -1,0 +1,22 @@
+from typing import List
+
+
+class Solution:
+    def combinationSum3(self, k: int, n: int) -> List[List[int]]:
+        anses=[]
+        def dfs(n,k,index,ans):
+            if len(ans)==k and n==0:
+                anses.append(ans[:])
+                return
+            for i in range(index,10):
+                if i>n:
+                    break
+                ans.append(i)
+                dfs(n-i,k,i+1,ans)
+                ans.pop()
+        dfs(n,k,1,[])
+        return anses
+
+
+# runtime:28 ms
+# memory:15 MB
