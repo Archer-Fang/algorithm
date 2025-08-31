@@ -1,0 +1,26 @@
+class Solution:
+    def findRedundantConnection(self, edges: List[List[int]]) -> List[int]:
+        result=[]
+        visited=[0 for i in range(len(edges)+1)]
+        self.dfs(visited,edges,0,result)
+        return result
+
+    def dfs(self, visited, edges, index,result):
+        if index == len(edges):
+            return
+        if visited[edges[index][1]]==1:
+            result.append(edges[index][0])
+            result.append(edges[index][1])
+            return
+        visited[edges[index][0]]=1
+        visited[edges[index][1]]=1
+        self.dfs(visited, edges,index+1,result)
+
+
+
+# total_testcases:39
+# total_correct:6
+# input_formatted:[[1,4],[3,4],[1,3],[1,2],[4,5]]
+# expected_output:[1,3]
+# code_output:[3,4]
+# last_testcase:[[1,4],[3,4],[1,3],[1,2],[4,5]]
